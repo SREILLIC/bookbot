@@ -16,3 +16,16 @@ def count_words(book):
     
     number_of_words = len(list_words) #get number of words via len()
     return number_of_words
+
+def count_characters(book):
+    #get text str
+    text_str = (get_book_text(book)).lower()
+    dict_characters = {}
+
+    for c in text_str:
+        if c in dict_characters:
+            dict_characters[c] += 1
+        else:
+            dict_characters[c] = 1
+
+    return dict_characters
