@@ -17,6 +17,7 @@ def count_words(book):
     number_of_words = len(list_words) #get number of words via len()
     return number_of_words
 
+#makes dictionary that counts each character
 def count_characters(book):
     #get text str
     text_str = (get_book_text(book)).lower()
@@ -29,3 +30,22 @@ def count_characters(book):
             dict_characters[c] = 1
 
     return dict_characters
+
+#defines what to sort by (that's what the tut says okay...)
+def sort_on(items):
+    return items["num"]
+
+def list_dicts_sort(book):
+
+    dict_count_characters = count_characters(book)
+    list_dicts = []
+
+    for i in dict_count_characters:
+        if i.isalpha() == True:
+            list_dicts.append({"char":i, "num":dict_count_characters[i]})
+        else:
+            pass
+
+    list_dicts.sort(reverse=True, key=sort_on)
+
+    return list_dicts
